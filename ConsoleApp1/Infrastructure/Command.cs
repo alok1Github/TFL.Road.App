@@ -20,7 +20,6 @@ namespace TFL.ClientApp.Infrastructure
                 default:
                     Command = new GetRoadStatus();
                     break;
-
             }
 
             return Command;

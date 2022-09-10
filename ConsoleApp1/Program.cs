@@ -1,14 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using TFL.ClientApp.Features.Command;
 using TFL.ClientApp.Infrastructure;
 
 var hostBuilder = Host.CreateDefaultBuilder(args)
-        .ConfigureServices((context, services) =>
+        .ConfigureAppConfiguration((context, builder) =>
         {
-            services.AddScoped<Commandfactory, Commandfactory>();
-            services.AddScoped<ICommand, GetExit>();
-            services.AddScoped<ICommand, GetRoadStatus>();
+            builder.Sources.Clear();
+            builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
         });
 
 var command = string.Empty;

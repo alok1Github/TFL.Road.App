@@ -3,6 +3,11 @@ using TFL.Common.Model;
 
 namespace TFL.ClientApp.Builder
 {
+    public interface IResult
+    {
+        StringBuilder BuildResult(RoadModel flightDetails);
+    }
+
     public class ResultBuilder : IResult
     {
         public StringBuilder BuildResult(RoadModel summary)
