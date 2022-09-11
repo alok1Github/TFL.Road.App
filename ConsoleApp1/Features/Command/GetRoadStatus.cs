@@ -1,15 +1,15 @@
 ﻿using TFL.ClientApp.Builder;
 using TFL.ClientApp.Infrastructure;
+using TFL.ClientApp.Model;
 using TFL.ClientApp.Request;
 using TFL.Common.Interfaces;
-using TFL.Common.Model;
 using TFL.Common.Request;
 
 namespace TFL.ClientApp.Features.Command
 {
     public class GetRoadStatus : ICommand
     {
-        private readonly IAPIGetService<RoadModel> service;
+        private readonly IAPIGetService<ClientModel> service;
         private readonly IAppSettings<ClientConfigRequest> config;
         private readonly IURI<ClientConfigRequest, ClientRequest> uri;
         private readonly IResult result;

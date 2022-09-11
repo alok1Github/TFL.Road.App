@@ -1,16 +1,16 @@
 ﻿using System.Text;
-using TFL.Common.Model;
+using TFL.ClientApp.Model;
 
 namespace TFL.ClientApp.Builder
 {
     public interface IResult
     {
-        StringBuilder BuildResult(RoadModel flightDetails);
+        StringBuilder BuildResult(ClientModel flightDetails);
     }
 
     public class ResultBuilder : IResult
     {
-        public StringBuilder BuildResult(RoadModel summary)
+        public StringBuilder BuildResult(ClientModel summary)
         {
             if (summary == null)
                 return new StringBuilder($"Road Details are missing");
@@ -24,6 +24,7 @@ namespace TFL.ClientApp.Builder
 
             result.AppendLine();
             result.Append($"Road Status Description is  : {summary.RoadDetails[0].StatusSeverityDescription} ");
+            result.AppendLine("------------------------------");
 
             Console.WriteLine(result);
 

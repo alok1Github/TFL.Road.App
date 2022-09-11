@@ -1,13 +1,13 @@
 ﻿using System.Net.Http.Json;
+using TFL.ClientApp.Model;
 using TFL.Common.Interfaces;
-using TFL.Common.Model;
 using TFL.Common.Request;
 
 namespace TFL.ClientApp.Builder
 {
-    public class APIBuilder : IAPIGetService<RoadModel>
+    public class APIBuilder : IAPIGetService<ClientModel>
     {
-        public async Task<RoadModel?> GetData(ServiceRequest request)
+        public async Task<ClientModel?> GetData(ServiceRequest request)
         {
             if (request == null || string.IsNullOrEmpty(request?.Uri)) return null;
 
@@ -20,7 +20,7 @@ namespace TFL.ClientApp.Builder
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadFromJsonAsync<RoadModel>();
+                    return await response.Content.ReadFromJsonAsync<ClientModel>();
                 }
             }
 

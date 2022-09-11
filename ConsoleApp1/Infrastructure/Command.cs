@@ -14,7 +14,7 @@ namespace TFL.ClientApp.Infrastructure
 
             switch (commandText)
             {
-                case "Exit":
+                case "EXIT":
                     Command = new GetExit();
                     break;
                 default:

@@ -21,7 +21,7 @@ do
 
     await commandText.OnAction(enteredText);
 
-} while (command != "Exit");
+} while (command != "EXIT");
 
 
 
