@@ -6,6 +6,7 @@
     public class ClientModel
     {
         public List<ClientResult> RoadDetails { get; set; }
+        public InvaildResult Errordetails { get; set; }
     }
     public class ClientResult
     {
@@ -13,5 +14,13 @@
         public string DisplayName { get; set; }
         public string StatusSeverity { get; set; }
         public string StatusSeverityDescription { get; set; }
+    }
+
+    public class InvaildResult
+    {
+        public string ExceptionType { get; set; }
+        public int HttpStatusCode { get; set; }
+        public string HttpStatus { get; set; }
+        public string Message { get; set; }
     }
 }

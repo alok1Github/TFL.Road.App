@@ -19,12 +19,18 @@ namespace TFL.API.Features.Road
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadFromJsonAsync<List<RoadResult>>();
+                    var result = await response.Content.ReadFromJsonAsync<List<ValidRoadResult>>();
 
                     return new RoadModel { RoadDetails = result };
                 }
+                else
+                {
+                    var result = await response.Content.ReadFromJsonAsync<InvaildValidRoadResult>();
+
+                    return new RoadModel { Errordetails = result };
+                }
             }
-            return null;
+
         }
     }
 }

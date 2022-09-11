@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.HttpLogging;
 using TFL.API.Builder;
+using TFL.API.ExceptionHandlers;
 using TFL.API.Features.Road;
+using TFL.API.filters;
 using TFL.API.Interfaces;
 using TFL.API.Model;
 using TFL.API.Request;
@@ -15,13 +18,19 @@ builder.Services.AddScoped<IURI<RoadConfigRequest, RoadRequest>, RoadURIBuilder>
 
 builder.Services.AddControllers();
 
-builder.Services.AddMvc(o =>
-{
-    o.AllowEmptyInputInBodyModelBinding = true;
-});
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// HttpLogging
+builder.Services.AddHttpLogging(logging =>
+{
+    logging.LoggingFields = HttpLoggingFields.All;
+});
+
+// Filters
+builder.Services.AddControllersWithViews(options =>
+    options.Filters.Add<ValidationFilter>()
+);
 
 var app = builder.Build();
 
@@ -31,8 +40,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseHttpLogging();
 
 app.UseHttpsRedirection();
+
+// Excetion handler 
+app.UseMiddleware(typeof(GlobalErrorHandler));
+
+// To Do : apply the security for api
+
 
 app.UseAuthorization();
 
