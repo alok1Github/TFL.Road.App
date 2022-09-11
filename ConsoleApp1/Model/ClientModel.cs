@@ -1,5 +1,8 @@
 ﻿namespace TFL.ClientApp.Model
 {
+    /*
+     *  This model is same is server side but client model should have its own idenity, hence the different model  
+     */
     public class ClientModel
     {
         public List<ClientResult> RoadDetails { get; set; }

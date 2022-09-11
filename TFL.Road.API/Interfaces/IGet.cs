@@ -1,5 +1,5 @@
 ﻿using TFL.API.Model;
-using TFL.API.Request;
+using TFL.Common.Interfaces;
 
 namespace TFL.API.Interfaces
 {

@@ -24,6 +24,7 @@ namespace TFL.ClientApp.Builder
 
             result.AppendLine();
             result.Append($"Road Status Description is  : {summary.RoadDetails[0].StatusSeverityDescription} ");
+            result.AppendLine();
             result.AppendLine("------------------------------");
 
             Console.WriteLine(result);

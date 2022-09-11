@@ -1,29 +1,38 @@
 ﻿using TFL.API.Interfaces;
 using TFL.API.Model;
 using TFL.API.Request;
+using TFL.Common.Interfaces;
+using TFL.Common.Request;
 
 namespace TFL.API.Features.Road
 {
     public class GetRoadDetails : IGet<RoadRequest, RoadModel>
     {
+        private readonly IAPIGetService<RoadModel> service;
+        private readonly IAppSettings<RoadConfigRequest> config;
+        private readonly IURI<RoadConfigRequest, RoadRequest> uri;
+        public GetRoadDetails(IAPIGetService<RoadModel> service,
+                              IAppSettings<RoadConfigRequest> config,
+                              IURI<RoadConfigRequest, RoadRequest> uri)
+        {
+            this.service = service;
+            this.config = config;
+            this.uri = uri;
+        }
+
         public async Task<RoadModel?> Handler(RoadRequest request)
         {
-            using (var client = new HttpClient())
+            var setting = await config.GetAppSettings();
+            var uri = this.uri.BuildUri(setting, request);
+
+            var serviceRequest = new ServiceRequest
             {
-                //  client.BaseAddress = new Uri(request.Uri);
-                client.DefaultRequestHeaders.Accept.Clear();
+                Uri = uri
+            };
 
-                var response = await client.GetAsync("https://api.tfl.gov.uk/Road/A2?app_id=xyz&app_key=7b662d8e60624c2b9b2ccaedaba91cd5");
+            var result = await service.GetData(serviceRequest);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadFromJsonAsync<List<RoadResult>>();
-
-                    return new RoadModel { RoadDetails = result };
-                }
-
-            }
-            return null;
+            return result;
         }
     }
 }
