@@ -8,7 +8,86 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Release\net6.0\appsettings.json" />
+    <Content Include="bin\Release\net6.0\publish\appsettings.json" />
+    <Content Include="bin\Release\net6.0\publish\TFL.ClientApp.deps.json" />
+    <Content Include="bin\Release\net6.0\publish\TFL.ClientApp.runtimeconfig.json" />
+    <Content Include="bin\Release\net6.0\TFL.ClientApp.deps.json" />
+    <Content Include="bin\Release\net6.0\TFL.ClientApp.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="bin\Release\net6.0\Flurl.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.Binder.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.CommandLine.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Hosting.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Hosting.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.Configuration.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.Console.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.Debug.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.EventLog.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Logging.EventSource.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Release\net6.0\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <None Include="bin\Release\net6.0\publish\Flurl.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.Binder.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.CommandLine.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Hosting.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Hosting.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.Configuration.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.Console.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.Debug.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.EventLog.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Logging.EventSource.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Release\net6.0\publish\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <None Include="bin\Release\net6.0\publish\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Release\net6.0\publish\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll" />
+    <None Include="bin\Release\net6.0\publish\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Release\net6.0\publish\TFL.ClientApp.dll" />
+    <None Include="bin\Release\net6.0\publish\TFL.ClientApp.exe" />
+    <None Include="bin\Release\net6.0\publish\TFL.ClientApp.pdb" />
+    <None Include="bin\Release\net6.0\publish\TFL.Common.dll" />
+    <None Include="bin\Release\net6.0\publish\TFL.Common.pdb" />
+    <None Include="bin\Release\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Release\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll" />
+    <None Include="bin\Release\net6.0\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Release\net6.0\TFL.ClientApp.dll" />
+    <None Include="bin\Release\net6.0\TFL.ClientApp.exe" />
+    <None Include="bin\Release\net6.0\TFL.ClientApp.pdb" />
+    <None Include="bin\Release\net6.0\TFL.Common.dll" />
+    <None Include="bin\Release\net6.0\TFL.Common.pdb" />
   </ItemGroup>
 
   <ItemGroup>
