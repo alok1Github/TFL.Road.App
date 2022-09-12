@@ -54,7 +54,6 @@ app.UseMiddleware(typeof(GlobalErrorHandler));
 
 // To Do : apply the security for api
 
-
 app.UseAuthorization();
 
 app.MapControllers();

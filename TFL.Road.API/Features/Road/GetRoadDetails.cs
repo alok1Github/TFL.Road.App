@@ -35,9 +35,7 @@ namespace TFL.API.Features.Road
                 Uri = uri
             };
 
-            var result = await service.GetData(serviceRequest);
-
-            return result;
+            return await service.GetData(serviceRequest);
         }
     }
 }

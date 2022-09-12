@@ -13,7 +13,7 @@ namespace TFL.API.Builder
             var url = $"{settings.BaseUrl}{parms.Id}";
 
             return url.SetQueryParam("app_key", settings.Key)
-            .SetQueryParam("app_id", settings.AppId);
+                      .SetQueryParam("app_id", settings.AppId);
         }
     }
 }

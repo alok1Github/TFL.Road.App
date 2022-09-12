@@ -15,6 +15,7 @@ namespace TFL.API.Features.Road
         public RoadController(IGet<RoadRequest, RoadModel> get)
         {
             Guard.ArgumentNotNull(get, nameof(get));
+
             this.get = get;
         }
 

@@ -11,10 +11,7 @@ namespace TFL.API.Features.Road
     {
         public async Task<RoadModel> BuildResponse(HttpResponseMessage response)
         {
-            if (response == null)
-            {
-                return null;
-            }
+            if (response == null) return null;
 
             if (response.IsSuccessStatusCode)
             {
