@@ -7,11 +7,13 @@ using TFL.API.Interfaces;
 using TFL.API.Model;
 using TFL.API.Request;
 using TFL.Common.Interfaces;
+using IResult = TFL.API.Features.Road.IResult;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<IGet<RoadRequest, RoadModel>, GetRoadDetails>();
+builder.Services.AddScoped<IResult, RoadResult>();
 builder.Services.AddScoped<IAPIGetService<RoadModel>, RoadService>();
 builder.Services.AddScoped<IAppSettings<RoadConfigRequest>, RoadAppSetting>();
 builder.Services.AddScoped<IURI<RoadConfigRequest, RoadRequest>, RoadURIBuilder>();
@@ -29,7 +31,10 @@ builder.Services.AddHttpLogging(logging =>
 
 // Filters
 builder.Services.AddControllersWithViews(options =>
-    options.Filters.Add<ValidationFilter>()
+{
+    options.Filters.Add<ValidationFilter>();
+    options.Filters.Add<ExceptionFilter>();
+}
 );
 
 var app = builder.Build();

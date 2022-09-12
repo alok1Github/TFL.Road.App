@@ -6,6 +6,12 @@ namespace TFL.API.Features.Road
 {
     public class RoadService : IAPIGetService<RoadModel>
     {
+        private readonly IResult result;
+        public RoadService(IResult result)
+        {
+            this.result = result;
+        }
+
         public async Task<RoadModel?> GetData(ServiceRequest request)
         {
             if (request == null || string.IsNullOrEmpty(request?.Uri)) return null;
@@ -17,20 +23,8 @@ namespace TFL.API.Features.Road
 
                 var response = await client.GetAsync(request.Uri);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadFromJsonAsync<List<ValidRoadResult>>();
-
-                    return new RoadModel { RoadDetails = result };
-                }
-                else
-                {
-                    var result = await response.Content.ReadFromJsonAsync<InvaildValidRoadResult>();
-
-                    return new RoadModel { Errordetails = result };
-                }
+                return await this.result.BuildResponse(response);
             }
-
         }
     }
 }

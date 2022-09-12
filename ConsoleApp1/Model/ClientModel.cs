@@ -5,8 +5,9 @@
      */
     public class ClientModel
     {
-        public List<ClientResult> RoadDetails { get; set; }
-        public InvaildResult Errordetails { get; set; }
+        public List<ClientResult> ValidRoadDetails { get; set; }
+        public InvaildResult InvalidRoadDetails { get; set; }
+        public ErrorModel ErrorDetails { get; set; }
     }
     public class ClientResult
     {

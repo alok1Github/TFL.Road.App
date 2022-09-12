@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
-using TFL.API.filters;
 using TFL.API.Interfaces;
 using TFL.API.Model;
 using TFL.API.Request;
@@ -20,7 +19,6 @@ namespace TFL.API.Features.Road
         }
 
         [HttpGet(Name = "GetStatus")]
-        [RoadFilter]
         public async Task<IActionResult> Get([FromQuery] RoadRequest request)
         {
             if (request == null) return BadRequest();

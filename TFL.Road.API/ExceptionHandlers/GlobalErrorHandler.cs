@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Net;
+﻿using System.Net;
 
 namespace TFL.API.ExceptionHandlers
 {
@@ -30,9 +29,10 @@ namespace TFL.API.ExceptionHandlers
             context.Response.ContentType = "application/json";
 
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            var result = JsonConvert.SerializeObject(ExceptionResponseBuilder.createRespone(exception, context));
 
-            return context.Response.WriteAsync(result);
+            var result = ExceptionResponseBuilder.createRespone(exception, context, "Unknown Error");
+
+            return context.Response.WriteAsJsonAsync(result);
         }
     }
 }

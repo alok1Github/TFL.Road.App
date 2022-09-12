@@ -22,9 +22,14 @@ namespace TFL.ClientApp.Builder
                 {
                     return await response.Content.ReadFromJsonAsync<ClientModel>();
                 }
-            }
+                else
+                {
+                    var result = await response.Content.ReadFromJsonAsync<ErrorModel>();
 
-            return null;
+                    return new ClientModel { ErrorDetails = result };
+                }
+
+            }
         }
     }
 }

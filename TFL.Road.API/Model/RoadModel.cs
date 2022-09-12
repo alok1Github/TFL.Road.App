@@ -4,8 +4,8 @@ namespace TFL.API.Model
 {
     public class RoadModel : IModel
     {
-        public List<ValidRoadResult> RoadDetails { get; set; }
-        public InvaildValidRoadResult Errordetails { get; set; }
+        public List<ValidRoadResult> ValidRoadDetails { get; set; }
+        public InvaildValidRoadResult InvalidRoadDetails { get; set; }
     }
     public class ValidRoadResult
     {

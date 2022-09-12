@@ -11,7 +11,7 @@
             {
                 ErrorId = Guid.NewGuid().ToString(),
                 ErrorMessage = errorMessage,
-                ErrorStatusCode = context.Response.StatusCode,
+                ErrorStatusCode = context.Response.StatusCode
 
             };
 

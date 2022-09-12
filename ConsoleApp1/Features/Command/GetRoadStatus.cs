@@ -16,8 +16,8 @@ namespace TFL.ClientApp.Features.Command
 
         public GetRoadStatus()
         {
-            // Ideally this should had come from IOC
-            // Gurd checking for dependenies 
+            // Ideally this should come from IOC
+            // Guard checking for dependencies 
 
             service = new APIBuilder();
             result = new ResultBuilder();
