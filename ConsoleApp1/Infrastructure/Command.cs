@@ -1,4 +1,6 @@
-﻿using TFL.ClientApp.Features.Command;
+﻿using TFL.ClientApp.Builder;
+using TFL.ClientApp.Features.Command;
+using TFL.ClientApp.Features.Result;
 
 namespace TFL.ClientApp.Infrastructure
 {
@@ -15,14 +17,20 @@ namespace TFL.ClientApp.Infrastructure
             switch (commandText)
             {
                 case "EXIT":
-                    Command = new GetExit();
+                    Command = new GetExit(); // Ideally this should come from IOC
                     break;
                 default:
-                    Command = new GetRoadStatus();
+                    Command = GetRoadStatusInjected(); // Ideally this should come from IOC
                     break;
             }
 
             return Command;
         }
+
+        private static ICommand GetRoadStatusInjected() =>
+                     new GetRoadStatus(new APIBuilder(), new AppSettingBuilder(), new URIBuilder(),
+                    new ResultHandler(new ErrorResult(), new ValidRoadResult(), new InvalidRoadResult()));
+
+
     }
 }

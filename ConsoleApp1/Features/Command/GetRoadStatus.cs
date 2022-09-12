@@ -1,4 +1,5 @@
-﻿using TFL.ClientApp.Builder;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Utility;
+using TFL.ClientApp.Features.Result;
 using TFL.ClientApp.Infrastructure;
 using TFL.ClientApp.Model;
 using TFL.ClientApp.Request;
@@ -12,17 +13,22 @@ namespace TFL.ClientApp.Features.Command
         private readonly IAPIGetService<ClientModel> service;
         private readonly IAppSettings<ClientConfigRequest> config;
         private readonly IURI<ClientConfigRequest, ClientRequest> uri;
-        private readonly IResult result;
+        private readonly IResult<ClientModel> result;
 
-        public GetRoadStatus()
+        public GetRoadStatus(IAPIGetService<ClientModel> service,
+                             IAppSettings<ClientConfigRequest> config,
+                             IURI<ClientConfigRequest, ClientRequest> uri,
+                             IResult<ClientModel> result)
         {
-            // Ideally this should come from IOC
-            // Guard checking for dependencies 
+            Guard.ArgumentNotNull(service, nameof(service));
+            Guard.ArgumentNotNull(config, nameof(config));
+            Guard.ArgumentNotNull(uri, nameof(uri));
+            Guard.ArgumentNotNull(uri, nameof(result));
 
-            service = new APIBuilder();
-            result = new ResultBuilder();
-            config = new AppSettingBuilder();
-            uri = new URIBuilder();
+            this.service = service;
+            this.config = config;
+            this.uri = uri;
+            this.result = result;
         }
 
         public async Task OnAction(string name)
