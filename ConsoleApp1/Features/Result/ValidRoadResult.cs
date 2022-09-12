@@ -7,6 +7,8 @@ namespace TFL.ClientApp.Features.Result
     {
         public StringBuilder BuildResult(ClientResult roadDetails)
         {
+            if (roadDetails == null) return null;
+
             var result = new StringBuilder();
 
             result.AppendLine($"The status of the  {roadDetails.DisplayName} is as follows ");

@@ -12,48 +12,35 @@ namespace TFL.ClientApp.Features.Result
     public class ResultHandler : IResult<ClientModel>
     {
         private readonly IResult<ClientResult> validResult;
-        private readonly IResult<InvaildResult> inValidResult;
-        private readonly IResult<ErrorModel> errorResult;
+        private readonly IResult<ClientModel> invalidResult;
 
-        public ResultHandler(IResult<ErrorModel> errorResult,
-                             IResult<ClientResult> validResult,
-                             IResult<InvaildResult> inValidResult)
+        public ResultHandler(IResult<ClientResult> validResult, IResult<ClientModel> inValidResult)
         {
-            Guard.ArgumentNotNull(errorResult, nameof(errorResult));
             Guard.ArgumentNotNull(validResult, nameof(validResult));
             Guard.ArgumentNotNull(inValidResult, nameof(inValidResult));
 
-            this.errorResult = errorResult;
             this.validResult = validResult;
-            this.inValidResult = inValidResult;
+            this.invalidResult = inValidResult;
         }
 
         public StringBuilder BuildResult(ClientModel summary)
         {
-            if (summary == null)
+            if (summary == null) return DefaultResult();
+
+            var result = GetRoadResult(summary);
+
+            if (result == null)
             {
-                return DefaultResult();
+                result = this.invalidResult.BuildResult(summary);
             }
 
-            if (summary.ValidRoadDetails != null)
-            {
-                return GetValidResult(summary);
-            }
-            else if (summary.InvalidRoadDetails != null)
-            {
-                return this.inValidResult.BuildResult(summary.InvalidRoadDetails);
-            }
-
-            else if (summary.ErrorDetails != null)
-            {
-                return this.errorResult.BuildResult(summary.ErrorDetails);
-            }
-
-            return DefaultResult();
+            return result;
         }
 
-        private StringBuilder GetValidResult(ClientModel summary)
+        private StringBuilder GetRoadResult(ClientModel summary)
         {
+            if (summary.ValidRoadDetails == null) return null;
+
             var results = new List<StringBuilder>();
 
             foreach (var details in summary.ValidRoadDetails)

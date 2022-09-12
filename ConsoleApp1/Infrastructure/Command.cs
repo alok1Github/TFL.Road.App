@@ -29,7 +29,7 @@ namespace TFL.ClientApp.Infrastructure
 
         private static ICommand GetRoadStatusInjected() =>
                      new GetRoadStatus(new APIBuilder(), new AppSettingBuilder(), new URIBuilder(),
-                    new ResultHandler(new ErrorResult(), new ValidRoadResult(), new InvalidRoadResult()));
+                    new ResultHandler(new ValidRoadResult(), new InvalidRoadResult(new ErrorResult())));
 
 
     }
