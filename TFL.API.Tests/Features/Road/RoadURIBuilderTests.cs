@@ -1,7 +1,7 @@
 ﻿using TFL.API.Builder;
 using TFL.API.Request;
 
-namespace TFL.API.Tests.Features
+namespace TFL.API.Tests.Features.Road
 {
     [TestClass]
     public class RoadURIBuilderTests

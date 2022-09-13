@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using TFL.API.Features.Road;
 
-namespace TFL.API.Tests.Features
+namespace TFL.API.Tests.Features.Road
 {
     [TestClass]
     public class RoadResultTests

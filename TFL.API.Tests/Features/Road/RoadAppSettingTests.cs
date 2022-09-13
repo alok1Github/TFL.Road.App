@@ -1,7 +1,7 @@
 ﻿using TFL.API.Features.Road;
 using TFL.API.Request;
 
-namespace TFL.API.Tests.Features
+namespace TFL.API.Tests.Features.Road
 {
     [TestClass]
     public class RoadAppSettingTests

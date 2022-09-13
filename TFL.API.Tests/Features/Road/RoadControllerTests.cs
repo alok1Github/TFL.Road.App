@@ -5,7 +5,7 @@ using TFL.API.Interfaces;
 using TFL.API.Model;
 using TFL.API.Request;
 
-namespace TFL.API.Tests.Features
+namespace TFL.API.Tests.Features.Road
 {
     [TestClass]
     public class RoadControllerTests
@@ -32,7 +32,7 @@ namespace TFL.API.Tests.Features
             var result = await _controller.Get(null);
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(typeof(Microsoft.AspNetCore.Mvc.BadRequestResult), result.GetType());
+            Assert.AreEqual(typeof(BadRequestResult), result.GetType());
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace TFL.API.Tests.Features
             var result = await _controller.Get(new RoadRequest());
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(typeof(Microsoft.AspNetCore.Mvc.NotFoundResult), result.GetType());
+            Assert.AreEqual(typeof(NotFoundResult), result.GetType());
         }
 
         [TestMethod]

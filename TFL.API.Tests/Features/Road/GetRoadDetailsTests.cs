@@ -5,7 +5,7 @@ using TFL.API.Request;
 using TFL.Common.Interfaces;
 using TFL.Common.Request;
 
-namespace TFL.API.Tests.Features
+namespace TFL.API.Tests.Features.Road
 {
     [TestClass]
     public class GetRoadDetailsTests
