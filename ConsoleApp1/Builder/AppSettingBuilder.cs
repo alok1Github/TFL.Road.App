@@ -4,7 +4,7 @@ using TFL.Common.Interfaces;
 
 namespace TFL.ClientApp.Builder
 {
-    internal class AppSettingBuilder : IAppSettings<ClientConfigRequest>
+    public class AppSettingBuilder : IAppSettings<ClientConfigRequest>
     {
         public Task<ClientConfigRequest> GetAppSettings() =>
        Task.Run(() => new ConfigurationBuilder()

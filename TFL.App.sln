@@ -16,6 +16,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFL.Common", "TFL.Common\TF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFL.API.Tests", "TFL.API.Tests\TFL.API.Tests.csproj", "{36B90A50-CE92-4900-8C90-5795D32DAF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFL.ClientApp.Tests", "TFL.ClientApp.Tests\TFL.ClientApp.Tests.csproj", "{80B93054-BD73-44B7-9187-6D7D81CD84FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{36B90A50-CE92-4900-8C90-5795D32DAF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B90A50-CE92-4900-8C90-5795D32DAF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B90A50-CE92-4900-8C90-5795D32DAF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B93054-BD73-44B7-9187-6D7D81CD84FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B93054-BD73-44B7-9187-6D7D81CD84FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B93054-BD73-44B7-9187-6D7D81CD84FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B93054-BD73-44B7-9187-6D7D81CD84FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
