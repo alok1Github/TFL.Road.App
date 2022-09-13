@@ -7,6 +7,8 @@ namespace TFL.ClientApp.Features.Result
     {
         public StringBuilder BuildResult(ErrorModel error)
         {
+            if (error == null) return null;
+
             var result = new StringBuilder($"Error has occoured : Following are the details");
             result.AppendLine();
             result.AppendLine("-----------------------------------------------");

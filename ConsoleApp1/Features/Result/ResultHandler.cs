@@ -34,6 +34,8 @@ namespace TFL.ClientApp.Features.Result
                 result = this.invalidResult.BuildResult(summary);
             }
 
+            if (result == null) return DefaultResult();
+
             return result;
         }
 
