@@ -23,7 +23,7 @@ namespace TFL.ClientApp.Features.Command
             Guard.ArgumentNotNull(service, nameof(service));
             Guard.ArgumentNotNull(config, nameof(config));
             Guard.ArgumentNotNull(uri, nameof(uri));
-            Guard.ArgumentNotNull(uri, nameof(result));
+            Guard.ArgumentNotNull(result, nameof(result));
 
             this.service = service;
             this.config = config;

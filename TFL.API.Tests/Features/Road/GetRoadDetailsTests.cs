@@ -10,7 +10,7 @@ namespace TFL.API.Tests.Features.Road
     [TestClass]
     public class GetRoadDetailsTests
     {
-        private GetRoadDetails _getWeather;
+        private GetRoadDetails _getRoadDetails;
         private Mock<IAppSettings<RoadConfigRequest>> _mockAppSettings;
         private Mock<IAPIGetService<RoadModel>> _mockService;
         private Mock<IURI<RoadConfigRequest, RoadRequest>> _mockUrl;
@@ -22,7 +22,7 @@ namespace TFL.API.Tests.Features.Road
             _mockService = new Mock<IAPIGetService<RoadModel>>();
             _mockUrl = new Mock<IURI<RoadConfigRequest, RoadRequest>>();
 
-            _getWeather = new GetRoadDetails(_mockService.Object, _mockAppSettings.Object, _mockUrl.Object); ;
+            _getRoadDetails = new GetRoadDetails(_mockService.Object, _mockAppSettings.Object, _mockUrl.Object); ;
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace TFL.API.Tests.Features.Road
         [TestMethod]
         public async Task Returns_Null_For_Null_AppSettingsValues()
         {
-            var result = await _getWeather.Handler(new RoadRequest());
+            var result = await _getRoadDetails.Handler(new RoadRequest());
 
             Assert.IsNull(result);
         }
@@ -54,7 +54,7 @@ namespace TFL.API.Tests.Features.Road
             _mockAppSettings.Setup(s => s.GetAppSettings())
              .Returns(Task.FromResult(new RoadConfigRequest()));
 
-            var handler = _getWeather.Handler(new RoadRequest());
+            var handler = _getRoadDetails.Handler(new RoadRequest());
 
             Assert.IsNull(handler.Result);
         }
@@ -69,13 +69,13 @@ namespace TFL.API.Tests.Features.Road
                 It.IsAny<RoadRequest>()))
             .Returns("Test");
 
-            var result = await _getWeather.Handler(new RoadRequest());
+            var result = await _getRoadDetails.Handler(new RoadRequest());
 
             Assert.IsNull(result);
         }
 
         [TestMethod]
-        public async Task Returns_WeatherModel_For_valid_Request()
+        public async Task Returns_RoadModel_For_valid_Request()
         {
             _mockAppSettings.Setup(s => s.GetAppSettings())
              .Returns(Task.FromResult(new RoadConfigRequest()));
@@ -87,7 +87,7 @@ namespace TFL.API.Tests.Features.Road
             _mockService.Setup(s => s.GetData(It.IsAny<ServiceRequest>()))
           .Returns(Task.FromResult(new RoadModel()));
 
-            var result = await _getWeather.Handler(new RoadRequest());
+            var result = await _getRoadDetails.Handler(new RoadRequest());
 
             Assert.IsNotNull(result);
 
