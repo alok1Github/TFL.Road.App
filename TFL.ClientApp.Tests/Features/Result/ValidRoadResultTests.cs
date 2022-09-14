@@ -31,7 +31,7 @@ namespace TFL.ClientApp.Tests.Features.Result
         }
 
         [TestMethod]
-        public void Returns_Contains_Error_Details_for_Valid_ErrorModel()
+        public void Returns_Contains_ValidRoad_Details_for_Valid_Model()
         {
             var result = _validResult.BuildResult(getModel()).ToString();
 

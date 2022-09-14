@@ -16,6 +16,8 @@ namespace TFL.ClientApp.Features.Result
 
         public StringBuilder BuildResult(ClientModel roadDetails)
         {
+            if (roadDetails == null) return null;
+
             if (roadDetails.InvalidRoadDetails == null && roadDetails.ValidRoadDetails == null)
             {
                 return this.errorResult.BuildResult(roadDetails.ErrorDetails);
