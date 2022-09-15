@@ -15,18 +15,37 @@ namespace TFL.ClientApp.Builder
             {
                 client.BaseAddress = new Uri(request.Uri);
                 client.DefaultRequestHeaders.Accept.Clear();
+                HttpResponseMessage response;
 
-                var response = await client.GetAsync(request.Uri);
-
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    return await response.Content.ReadFromJsonAsync<ClientModel>();
+
+                    response = await client.GetAsync(request.Uri);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadFromJsonAsync<ClientModel>();
+                    }
+                    else
+                    {
+                        var result = await response.Content.ReadFromJsonAsync<ErrorModel>();
+
+                        return new ClientModel { ErrorDetails = result };
+                    }
                 }
-                else
-                {
-                    var result = await response.Content.ReadFromJsonAsync<ErrorModel>();
 
-                    return new ClientModel { ErrorDetails = result };
+                catch (Exception ex)
+                {
+                    return new ClientModel
+                    {
+                        ErrorDetails = new ErrorModel
+                        {
+                            ErrorId = Guid.NewGuid().ToString(),
+                            ErrorMessage = ex.Message.ToString(),
+                            ErrorStatusCode = 404
+                        }
+                    };
+
                 }
 
             }
