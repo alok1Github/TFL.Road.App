@@ -5,7 +5,7 @@
   # Go to the solution property and select multiple startup projects 
   # Change TFL.API and TFL.ClientApp to Start from None , then click Apply and click OK.
   # Rebuild the entire solution.  
-  # Go to the appsettings.json inside the TFL.API project and inside that filr find section named as "RoadConfigRequest" and give values for Key and AppId.
+  # Go to the appsettings.json inside the TFL.API project and inside that file find section named as "RoadConfigRequest" and give your values for Key and AppId.
   # Press Start button to run the project (wait for both the project to run )
   
   Run Unit test :
