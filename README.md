@@ -1,10 +1,5 @@
 # TThis app has been built on .net 6, needs visual studio 2022.
-# This Solution named As TFL.App, has 5 project 
-   # TFL.API - Statnd alon API can be consumed by any Client. 
-   # TFL.API.Tests - respective Tests
-   # TFL.ClientApp - it's a client for TFL.API (and it has the ability to configure clinet ,provide deffient model)   
-   # TFL.ClientAppTests -respective Tests
-   # TFL.Common - Its a common proejct
+
 
 # Steps to build & run the project .
   # Download the repo and open it in vs2022
