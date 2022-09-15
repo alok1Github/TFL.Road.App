@@ -1,4 +1,4 @@
-# This app has been built on .net 6, needs visual studio 2022.
+This app has been built on .net 6, needs visual studio 2022.
 
 
 # Steps to build & run the project .
