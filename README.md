@@ -10,7 +10,8 @@
    Press Start button to run the project (wait for both the project to run )  
   
   # For running Unit test :
-    Go to Visual studio menu click on Test -> Run All Tests . This should open the window with tests for both API and client and run all the tests . 
+    Go to Visual studio menu click on Test -> Run All Tests . 
+    This should open the window with tests for both API and client and run all the tests . 
 
  # Other Notes :
    I put Small "To Do's" where I think If more time spend i would love to do it .
