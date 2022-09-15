@@ -7,7 +7,7 @@ namespace TFL.API.Tests.ExceptionHandlers
     public class ExceptionResponseBuilderTests
     {
         [TestMethod]
-        public void Returns_Exception_Message_If__Available_In_Exception()
+        public void Returns_Exception_Message_If_Message_Available_In_Exception()
         {
             var model = ExceptionResponseBuilder.createRespone(new Exception(), new DefaultHttpContext());
 
@@ -25,7 +25,7 @@ namespace TFL.API.Tests.ExceptionHandlers
         }
 
         [TestMethod]
-        public void Returns_Custom_Message_If_Custom_Message_In_Exception()
+        public void Returns_Custom_Message_If_Custom_Message_In_Provided()
         {
             var model = ExceptionResponseBuilder.createRespone(null, new DefaultHttpContext(), "Unknown Error");
 

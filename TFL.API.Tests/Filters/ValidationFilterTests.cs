@@ -31,7 +31,7 @@ namespace TFL.API.Tests.Filters
         }
 
         [TestMethod]
-        public void Returns_Null_Action_Context_For_ValidModel()
+        public void Returns_Null_Action_Context_Result_For_ValidModel()
         {
             _filter.OnActionExecuting(_executingContext);
 

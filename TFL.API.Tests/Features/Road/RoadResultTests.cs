@@ -37,7 +37,7 @@ namespace TFL.API.Tests.Features.Road
         }
 
         [TestMethod]
-        public async Task Returns_Null_InValidRoadDetails_For_True_SuccessStatusCode()
+        public async Task Returns_NullInValidRoadDetailsResponse_For_True_SuccessStatusCode()
         {
             HttpResponseMessage mockResponse = mockValidRoadResponse();
 
@@ -61,7 +61,7 @@ namespace TFL.API.Tests.Features.Road
         }
 
         [TestMethod]
-        public async Task Returns_Null_ValidRoadDetails_For_False_SuccessStatusCode()
+        public async Task Returns_NullValidRoadDetailsResponse_For_False_SuccessStatusCode()
         {
             HttpResponseMessage mockResponse = mockInvalidRoadResponse();
 

@@ -19,7 +19,6 @@ namespace TFL.ClientApp.Builder
 
                 try
                 {
-
                     response = await client.GetAsync(request.Uri);
 
                     if (response.IsSuccessStatusCode)
@@ -47,7 +46,6 @@ namespace TFL.ClientApp.Builder
                     };
 
                 }
-
             }
         }
     }

@@ -15,7 +15,7 @@ namespace TFL.ClientApp.Tests.Builder
         }
 
         [TestMethod]
-        public async Task Returns_RoadConfigRequest_Object_From_AppSettings()
+        public async Task Returns_ClientConfigRequest_Object_From_AppSettings()
         {
             var result = await _configSettings.GetAppSettings();
 

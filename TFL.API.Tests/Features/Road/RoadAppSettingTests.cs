@@ -7,6 +7,7 @@ namespace TFL.API.Tests.Features.Road
     public class RoadAppSettingTests
     {
         private RoadAppSetting _configSettings;
+
         [TestInitialize]
         public void SetUp()
         {

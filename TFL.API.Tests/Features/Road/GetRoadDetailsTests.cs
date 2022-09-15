@@ -41,7 +41,7 @@ namespace TFL.API.Tests.Features.Road
        new GetRoadDetails(_mockService.Object, _mockAppSettings.Object, null);
 
         [TestMethod]
-        public async Task Returns_Null_For_Null_AppSettingsValues()
+        public async Task Returns_Null_For_No_AppSettingsValues()
         {
             var result = await _getRoadDetails.Handler(new RoadRequest());
 
@@ -49,7 +49,7 @@ namespace TFL.API.Tests.Features.Road
         }
 
         [TestMethod]
-        public void Returns_Null_For_Null_Url()
+        public void Returns_Null_For_If_No_Url_Provided_From_BuildUri()
         {
             _mockAppSettings.Setup(s => s.GetAppSettings())
              .Returns(Task.FromResult(new RoadConfigRequest()));

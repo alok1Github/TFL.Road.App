@@ -4,9 +4,9 @@ using TFL.ClientApp.Model;
 
 namespace TFL.ClientApp.Features.Result
 {
-    public interface IResult<T> where T : class
+    public interface IResult<ResultModel> where ResultModel : class
     {
-        StringBuilder BuildResult(T roadDetails);
+        StringBuilder BuildResult(ResultModel roadDetails);
     }
 
     public class ResultHandler : IResult<ClientModel>

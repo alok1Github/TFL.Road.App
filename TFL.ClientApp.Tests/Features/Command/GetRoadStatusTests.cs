@@ -25,7 +25,8 @@ namespace TFL.ClientApp.Tests.Features.Command
             _mockUrl = new Mock<IURI<ClientConfigRequest, ClientRequest>>();
             _mockResult = new Mock<IResult<ClientModel>>();
 
-            _getRoadStatus = new GetRoadStatus(_mockService.Object, _mockAppSettings.Object, _mockUrl.Object, _mockResult.Object); ;
+            _getRoadStatus = new GetRoadStatus(_mockService.Object, _mockAppSettings.Object,
+                                               _mockUrl.Object, _mockResult.Object); ;
         }
 
         [TestMethod]
@@ -54,7 +55,7 @@ namespace TFL.ClientApp.Tests.Features.Command
         public async Task Returns_Null_For_Null_AppSettingsValues() => await AssertNoException();
 
         [TestMethod]
-        public async Task Returns_Null_For_Null_Url()
+        public async Task Returns_Null_For_Null_Response_From_UrlBuilder()
         {
             _mockAppSettings.Setup(s => s.GetAppSettings())
              .Returns(Task.FromResult(new ClientConfigRequest()));

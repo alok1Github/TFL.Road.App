@@ -31,7 +31,7 @@ namespace TFL.API.Tests.Features.Road
         }
 
         [TestMethod]
-        public void Throws_Null_Exception_For_Null_Dependencies()
+        public void Returns_ExpectedUri_For_Valid_Request()
         {
             var settings = new RoadConfigRequest();
             settings.BaseUrl = "https://api.tfl.gov.uk/Road/";
