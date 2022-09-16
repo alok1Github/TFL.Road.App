@@ -1,5 +1,4 @@
-﻿using System.Net;
-using TFL.API.Features.Road;
+﻿using TFL.API.Features.Road;
 
 namespace TFL.API.Tests.Features.Road
 {
@@ -25,7 +24,7 @@ namespace TFL.API.Tests.Features.Road
         [TestMethod]
         public async Task Returns_ValidRoadDetails_For_True_SuccessStatusCode()
         {
-            HttpResponseMessage mockResponse = mockValidRoadResponse();
+            HttpResponseMessage mockResponse = Helper.MockValidRoadResponse();
 
             var result = await _result.BuildResponse(mockResponse);
 
@@ -39,7 +38,7 @@ namespace TFL.API.Tests.Features.Road
         [TestMethod]
         public async Task Returns_NullInValidRoadDetailsResponse_For_True_SuccessStatusCode()
         {
-            HttpResponseMessage mockResponse = mockValidRoadResponse();
+            HttpResponseMessage mockResponse = Helper.MockValidRoadResponse();
 
             var result = await _result.BuildResponse(mockResponse);
 
@@ -50,7 +49,7 @@ namespace TFL.API.Tests.Features.Road
         [TestMethod]
         public async Task Returns_InvalidRoadDetails_For_False_SuccessStatusCode()
         {
-            HttpResponseMessage mockResponse = mockInvalidRoadResponse();
+            HttpResponseMessage mockResponse = Helper.MockInvalidRoadResponse();
 
             var result = await _result.BuildResponse(mockResponse);
 
@@ -63,36 +62,12 @@ namespace TFL.API.Tests.Features.Road
         [TestMethod]
         public async Task Returns_NullValidRoadDetailsResponse_For_False_SuccessStatusCode()
         {
-            HttpResponseMessage mockResponse = mockInvalidRoadResponse();
+            HttpResponseMessage mockResponse = Helper.MockInvalidRoadResponse();
 
             var result = await _result.BuildResponse(mockResponse);
 
             Assert.IsNotNull(result);
             Assert.IsNull(result.ValidRoadDetails);
         }
-
-        private static HttpResponseMessage mockInvalidRoadResponse()
-        {
-            return new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.NotFound,
-                Content = new StringContent(@"{""exceptionType"": ""EntityNotFoundException"",
-                                               ""message"": ""The following road id is not recognised: A234"",
-                                               ""httpStatus"": ""NotFound"",""httpStatusCode"": 404}"),
-            };
-        }
-
-        private static HttpResponseMessage mockValidRoadResponse()
-        {
-            return new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(@"[{ ""id"": ""a2"", ""displayName"": ""A2"",
-                                                ""statusSeverity"": ""Good"",""statusSeverityDescription"": ""No Exceptional Delays""}]"),
-            };
-        }
-
-
-
     }
 }

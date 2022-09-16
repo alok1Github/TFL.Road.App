@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<IGet<RoadRequest, RoadModel>, GetRoadDetails>();
 builder.Services.AddScoped<IResult, RoadResult>();
+builder.Services.AddScoped<HttpClient, HttpClient>();
 builder.Services.AddScoped<IAPIGetService<RoadModel>, RoadService>();
 builder.Services.AddScoped<IAppSettings<RoadConfigRequest>, RoadAppSetting>();
 builder.Services.AddScoped<IURI<RoadConfigRequest, RoadRequest>, RoadURIBuilder>();
